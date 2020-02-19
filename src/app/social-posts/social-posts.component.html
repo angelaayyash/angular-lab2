@@ -1,0 +1,13 @@
+<h2>My Thoughts</h2>
+<button class="add-thought" (click)="showForm()">New Thought</button>
+<div class="form-container" *ngIf="show">
+  <app-post-form (submitted)="onSubmit($event)"></app-post-form>
+</div>
+<div class="app-container">
+  <app-post
+    *ngFor="let penguin of listOfPosts; index as i"
+    [singlePost]="penguin"
+    (deleted)="onDelete(i)"
+  >
+  </app-post>
+</div>
